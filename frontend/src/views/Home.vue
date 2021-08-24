@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="col-md-6 col-lg-6 offset-md-3 ">
     <ClientAdd />
   </div>
 </template>
