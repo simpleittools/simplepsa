@@ -1,13 +1,13 @@
 <template>
   <div class="input-group">
-    <span class="input-group-text">Email:</span>
-    <input type="email" class="form-control">
+    <span class="input-group-text">Username:</span>
+    <input type="text" class="form-control">
   </div>
 </template>
 
 <script>
 export default {
-  name: "EmailAddress"
+name: "Username"
 }
 </script>
 

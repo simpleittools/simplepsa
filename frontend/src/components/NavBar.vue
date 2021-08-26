@@ -14,7 +14,10 @@
             <router-link class="nav-link" :to="{name: 'About'}">About</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <router-link class="nav-link" :to="{name: 'Login'}">Login</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{name: 'Admin'}">Admin</router-link>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
