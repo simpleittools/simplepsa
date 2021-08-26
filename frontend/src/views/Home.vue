@@ -1,18 +1,22 @@
 <template>
-  <button @click="showClientForm" v-show="!clientForm.displayClientForm">New Client</button>
-  <button @click="showNewDeviceForm" v-show="!clientForm.displayNewDeviceForm">New Device</button>
+  <button @click="showClientForm" v-show="!formSelector.displayClientForm" class="btn btn-primary">New Client</button>
+  <button @click="showNewDeviceForm" v-show="!formSelector.displayNewDeviceForm" class="btn btn-primary">New Device</button>
+  <button @click="showWalkInForm" v-show="!formSelector.displayNewWalkInForm" class="btn btn-primary">New Walk In</button>
   <div class="col-md-6 col-lg-6 offset-md-3">
 
-    <transition name="slide">
-      <div v-if="clientForm.displayClientForm">
-        <ClientAdd />
+<!--    <transition name="slide">-->
+      <div v-if="formSelector.displayNewWalkInForm">
+        <WalkInAdd />
       </div>
-    </transition>
-    <transition name="slide">
-      <div v-if="clientForm.displayNewDeviceForm">
+<!--    </transition>-->
+<!--    <transition name="slide">-->
+      <div v-if="formSelector.displayNewDeviceForm">
         <DeviceAdd />
       </div>
-    </transition>
+<!--    </transition>-->
+    <div v-if="formSelector.displayClientForm">
+      <ClientAdd />
+    </div>
 
   </div>
 
@@ -22,32 +26,44 @@
 import ClientAdd from "@/components/forms/ClientAdd";
 import { reactive } from "vue";
 import DeviceAdd from "@/components/forms/DeviceAdd";
+import WalkInAdd from "@/components/forms/WalkInAdd";
 
 
 export default {
   name: 'Home',
   components: {
     DeviceAdd,
-    ClientAdd
+    ClientAdd,
+    WalkInAdd
   },
   setup() {
-    const clientForm = reactive({
+    const formSelector = reactive({
       displayClientForm: true,
-      displayNewDeviceForm: false
+      displayNewDeviceForm: false,
+      displayNewWalkInForm: false,
+
     })
     const showNewDeviceForm = () => {
-      clientForm.displayClientForm = false
-      clientForm.displayNewDeviceForm = true
+      formSelector.displayClientForm = false
+      formSelector.displayNewDeviceForm = true
+      formSelector.displayNewWalkInForm = false
     }
     const showClientForm = () => {
-      clientForm.displayClientForm = true
-      clientForm.displayNewDeviceForm = false
+      formSelector.displayClientForm = true
+      formSelector.displayNewDeviceForm = false
+      formSelector.displayNewWalkInForm = false
+    }
+    const showWalkInForm = () => {
+      formSelector.displayClientForm = false
+      formSelector.displayNewDeviceForm = false
+      formSelector.displayNewWalkInForm = true
     }
 
     return {
-      clientForm,
+      formSelector,
       showNewDeviceForm,
-      showClientForm
+      showClientForm,
+      showWalkInForm
     }
   }
 }

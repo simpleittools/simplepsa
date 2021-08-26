@@ -26,4 +26,5 @@ export default {
 .input-group-text {
   width: 130px;
 }
+
 </style>

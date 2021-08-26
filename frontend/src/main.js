@@ -4,5 +4,6 @@ import router from './router'
 
 import "./assets/css/bootstrap.min.css"
 import "@/assets/js/bootstrap.min"
+import "@/assets/css/styles.css"
 
 createApp(App).use(router).mount('#app')
