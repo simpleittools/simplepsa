@@ -27,9 +27,14 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Admin.vue')
   },
   {
-    path: '/wo',
-    name: 'WorkOrders',
-    component: () => import(/* webpackChunkName: "about" */ '../views/WorkOrders.vue')
+    path: '/wo/status',
+    name: 'WorkOrderStatus',
+    component: () => import(/* webpackChunkName: "about" */ '../views/workOrders/WorkOrderStatus.vue')
+  },
+  {
+    path: '/wo/create',
+    name: 'WorkOrderCreate',
+    component: () => import(/* webpackChunkName: "about" */ '../views/workOrders/WorkOrderCreate.vue')
   },
 ]
 

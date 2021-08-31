@@ -19,16 +19,13 @@
           <li class="nav-item">
             <router-link class="nav-link" :to="{name: 'Admin'}">Admin</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" :to="{name: 'WorkOrders'}">Work Orders</router-link>
-          </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown link
+            <a class="nav-link dropdown-toggle" href="#" id="workOrder" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              WorkOrders
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><router-link class="dropdown-item" :to="{name: 'WorkOrderStatus'}">Work Order Status</router-link></li>
+              <li><router-link class="dropdown-item" :to="{name: 'WorkOrderCreate'}">Work Order Create</router-link></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
