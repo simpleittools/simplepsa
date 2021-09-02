@@ -3,6 +3,7 @@ package database
 import (
 	"fmt"
 	"github.com/simpleittools/simplepsa/config"
+	"github.com/simpleittools/simplepsa/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"
@@ -22,7 +23,7 @@ func Conn() {
 	timeZone := config.GoDotEnvVariable("TIMEZONE")
 	sslMode := config.GoDotEnvVariable("SSL_MODE")
 	if dbType == "mysql" {
-		dsn := dbUname + ":" + dbPassword + "@tcp(127.0.0.1:3306)/" + dbName + "?charset=utf8mb4&parseTime=True&loc=Local"
+		dsn := dbUname + ":" + dbPassword + "@tcp(" + dbAddress + ":" + dbPort + ")/" + dbName + "?charset=utf8mb4&parseTime=True&loc=Local"
 
 		conn, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
@@ -60,5 +61,5 @@ func Conn() {
 	}
 
 	// AutoMigrate will migrate the models into the table data
-	//conn.AutoMigrate(&models.Client{}, &models.Device{}, &models.DeviceType{}, &models.Manufacturer{})
+	DB.AutoMigrate(&models.WorkOrder{})
 }
