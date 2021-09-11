@@ -6,5 +6,12 @@ import (
 )
 
 func Routing(app *fiber.App) {
-	app.Post("/api/workorder/create", controllers.CreateWorkOrder)
+
+	workOrdersApi := app.Group("/api/workorder")
+	workOrdersApi.Post("/create", controllers.CreateWorkOrder)
+	workOrdersApi.Get("/", controllers.GetWorkOrders)
+
+	clientsApi := app.Group("/api/client")
+	clientsApi.Post("/create", controllers.CreateClient)
+	clientsApi.Get("/", controllers.GetAllClients)
 }

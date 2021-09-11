@@ -61,5 +61,5 @@ func Conn() {
 	}
 
 	// AutoMigrate will migrate the models into the table data
-	DB.AutoMigrate(&models.WorkOrder{})
+	DB.AutoMigrate(&models.WorkOrder{}, &models.Client{})
 }

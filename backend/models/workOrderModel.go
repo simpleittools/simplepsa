@@ -1,6 +1,7 @@
 package models
 
 import (
+	"gorm.io/datatypes"
 	"gorm.io/gorm"
 	"time"
 )
@@ -14,5 +15,7 @@ type WorkOrder struct {
 	ClientPO      string         `json:"client_po"`
 	Requestor     string         `json:"requestor"`
 	ProjectName   string         `json:"project_name"`
-	WorkOrderDate time.Time      `json:"work_order_date"`
+	WorkOrderDate datatypes.Date `json:"work_order_date"`
+	ClientID      uint           `json:"client_id"`
+	Client        Client         `json:"client"`
 }
